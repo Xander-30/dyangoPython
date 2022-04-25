@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <meta http-equiv="x-UA-Compatible" content="ie=edge">
+     <title> {% block titulo %}Listado de contacto{% endblock titulo %}</title>
+
+    <!--<link href="Estilos/inicio.css" -rel="stylesheet" />-->
+
+</head>
+<body>
+{% block cuerpo%} <!--bloque que separa x secciones-  , abre el blque-->
+
+  <h1>Template de listado</h1>
+  <table  border="2">
+    <thead>
+      <tr>
+        <th>Nombre</th>   
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>OPCION</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for persona in object_list %}
+          <tr> 
+           <td>{{ persona.nombre }} </td>
+           <td>{{ persona.apellido}}</td>
+           <td>{{ persona.correo }}</td>
+           <td><a href=" {% url 'editar_persona' persona.id %}">EDITAR</a> <a href=" {% url 'eliminar_persona' persona.id %}">ELIMINAR</a></td>
+          </tr>
+
+      {% endfor %} 
+    </tbody>
+   </table>
+{% endblock cuerpo %} <!--cierra el bloque de cuerpo-->
+</body>
+</html>

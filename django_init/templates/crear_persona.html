@@ -1,0 +1,12 @@
+{% extends 'index.html'%}  <!--hereda el formato html de ese archivo index.html -->
+{% block titulo %}Formulario de contacto{% endblock titulo %}  <!--bloque separador inicio y fin-->
+{% block cuerpo %}                      
+
+<form method ="Post">
+<!--{{ form }}-->
+{% csrf_token %} <!-- Con este validamos quien es el usuario y a quien pertenece ese token  y quien es el usuario que pertenece esa informacion-->
+{{ form.as_p }}   <!-- para que pinte en forma de parrafo hacia abajo-->
+<button type="submit"> CREAR O EDITAR</button>
+</form>
+
+{% endblock cuerpo %}
